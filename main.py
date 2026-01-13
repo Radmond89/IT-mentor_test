@@ -27,6 +27,12 @@ def main(mathexp):
 	if ',' in mathexp:
 		raise Exception("throws Exception //т.к. строка содержит запятую")
 	operators = ['-', '+', '*', '/']
+	operands = {
+		'*': lambda a, b: a * b,
+		'/': lambda a, b: a / b,
+		'-': lambda a, b: a - b,
+		'+': lambda a, b: a + b,
+	}
 	found = 0
 	for char in mathexp:
 		if char in operators:
@@ -40,17 +46,12 @@ def main(mathexp):
 	elif len(mathexp.split(' ')) < 3:
 		raise Exception("throws Exception")
 	elif len(mathexp.split(' ')) == 3:
-		operands = {
-			'*': lambda a, b: a * b,
-			'/': lambda a, b: a / b,
-			'-': lambda a, b: a - b,
-			'+': lambda a, b: a + b,
-		}
-
 		a, op, b = mathexp.split(' ')
 		# замена запятой на точку приведена для демонстрации. Проверка на запятую проведена ранее.
 		if '.' in a.replace(',', '.') or '.' in b.replace(',', '.'):
 			raise Exception("throws Exception //т.к. числа не целые")
+		if a.digits() == False or b.digits() == False:
+			raise Exception("throws Exception //введены символы вместо чисел")
 		a = int(a)
 		b = int(b)
 		if a not in range(1, 11) or b not in range(1, 11):
