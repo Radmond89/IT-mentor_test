@@ -35,9 +35,10 @@ def main(mathexp):
 				raise Exception("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)")
 	if found == 0:
 		raise Exception("throws Exception //т.к. строка не является математической операцией")
-	elif len(mathexp.split(' ')) >3:
+	elif len(mathexp.split(' ')) > 3:
 		raise Exception("throws Exception")
-
+	elif len(mathexp.split(' ')) < 3:
+		raise Exception("throws Exception")
 	elif len(mathexp.split(' ')) == 3:
 		operands = {
 			'*': lambda a, b: a * b,
@@ -60,6 +61,7 @@ def main(mathexp):
 if __name__ == '__main__':
 	try:
 		main(input())
+		input("Press Enter to exit...")
 	except Exception as e:
 		print(e)
 		input("Press Enter to exit...")
