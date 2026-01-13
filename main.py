@@ -1,5 +1,5 @@
 """
-Это тестовое задание для 'IT-mentor.ru'
+Это тестовое задание для 'IT-mentor.dev'
 Выполнил: Серебренников Радмир
 
 задача:
@@ -48,7 +48,8 @@ def main(mathexp):
 
 		a, op, b = mathexp.split(' ')
 		# замена запятой на точку приведена для демонстрации. Проверка на запятую проведена ранее.
-		if '.' in a.replace(',', '.') or '.' in b.replace(',', '.'): raise Exception("throws Exception //т.к. числа не целые")
+		if '.' in a.replace(',', '.') or '.' in b.replace(',', '.'):
+			raise Exception("throws Exception //т.к. числа не целые")
 		a = int(a)
 		b = int(b)
 		if a not in range(1, 11) or b not in range(1, 11):
