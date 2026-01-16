@@ -47,10 +47,11 @@ def main(mathexp):
 		raise Exception("throws Exception")
 	elif len(mathexp.split(' ')) == 3:
 		a, op, b = mathexp.split(' ')
+		print(a, op, b)
 		# замена запятой на точку приведена для демонстрации. Проверка на запятую проведена ранее.
 		if '.' in a.replace(',', '.') or '.' in b.replace(',', '.'):
 			raise Exception("throws Exception //т.к. числа не целые")
-		if a.digits() == False or b.digits() == False:
+		if a.isdigit() == False or b.isdigit() == False:
 			raise Exception("throws Exception //введены символы вместо чисел")
 		a = int(a)
 		b = int(b)
@@ -60,9 +61,9 @@ def main(mathexp):
 		print (int(result))
 
 if __name__ == '__main__':
-	try:
+	# try:
 		main(input())
 		input("Press Enter to exit...")
-	except Exception as e:
-		print(e)
-		input("Press Enter to exit...")
+	# except Exception as e:
+	# 	print(e)
+	# 	input("Press Enter to exit...")
